@@ -1,0 +1,5 @@
+ollama
+SpeechRecognition
+faster-whisper
+RealtimeTTS[system]
+pyaudio

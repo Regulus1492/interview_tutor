@@ -1,0 +1,6 @@
+venv/
+*.exe
+*.wav
+__pycache__/
+*.pyc
+.env
