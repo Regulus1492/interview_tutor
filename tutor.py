@@ -8,12 +8,14 @@ import shutil
 import zipfile
 import urllib.request
 import datetime
+import re
 
 # Add current directory to PATH so pydub/RealtimeTTS can find ffmpeg.exe
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Configuration
-MODEL_NAME = "llama3"  # Ensure you have run 'ollama pull llama3' previously
+MODEL_NAME = "llama3"  # Ensure you have run 'ollama pull llama3' previously, previus model
+MODEL_NAME = "gemma4:e2b" # This is the only model I could use from Gemma new models.Other models are too much for current setting. 
 WHISPER_SIZE = "base.en"  # Use "small.en" for better accuracy at the cost of speed
 
 # Condensed CV context injected into system prompts
@@ -113,6 +115,19 @@ stream = TextToAudioStream(engine)
 # Setup recorder
 recognizer = sr.Recognizer()
 recognizer.pause_threshold = 2.5  # seconds of silence before a phrase is considered finished
+
+
+def clean_for_speech(text):
+    text = re.sub(r'^#{1,6}\s*', '', text, flags=re.MULTILINE)   # ## headers
+    text = re.sub(r'^[-*_]{3,}\s*$', '', text, flags=re.MULTILINE)  # --- separators
+    text = re.sub(r'\*{1,3}([^*]+?)\*{1,3}', r'\1', text)       # **bold** / *italic*
+    text = re.sub(r'_{1,2}([^_]+?)_{1,2}', r'\1', text)          # __bold__ / _italic_
+    text = re.sub(r'`([^`]+?)`', r'\1', text)                     # `inline code`
+    text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)          # [link](url)
+    text = re.sub(r'[*_`|\\]', '', text)                          # leftover symbols
+    text = re.sub(r'[ \t]+', ' ', text)
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
 
 
 def select_mode():
@@ -222,7 +237,7 @@ def main():
         first_question = chat_with_ollama("Let's begin.", history)
         print(f"Tutor: {first_question}")
         log_turn(log_path, "Tutor", first_question)
-        stream.feed(first_question)
+        stream.feed(clean_for_speech(first_question))
         stream.play()
 
     try:
@@ -242,10 +257,10 @@ def main():
                     farewell = "Goodbye! Great session. Keep practicing!"
                     print(f"Tutor: {farewell}")
                     log_turn(log_path, "Tutor", farewell)
-                    stream.feed(farewell)
+                    stream.feed(clean_for_speech(farewell))
                     stream.play()
                     summary = generate_summary(history, log_path)
-                    stream.feed(summary)
+                    stream.feed(clean_for_speech(summary))
                     stream.play()
                     sys.exit(0)
 
@@ -258,7 +273,7 @@ def main():
                     ai_response = chat_with_ollama(user_text, history)
                 print(f"Tutor: {ai_response}")
                 log_turn(log_path, "Tutor", ai_response)
-                stream.feed(ai_response)
+                stream.feed(clean_for_speech(ai_response))
                 stream.play()
 
             except KeyboardInterrupt:

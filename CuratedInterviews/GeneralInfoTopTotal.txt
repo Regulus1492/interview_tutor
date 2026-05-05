@@ -1,0 +1,65 @@
+================================================================
+COMPANY_RESEARCH
+================================================================
+researched_date: 2026-04-27
+source:  / company website / Glassdoor /
+## Company basics
+website: https://www.toptal.com/
+founded_year: 2010
+hq_country: USA
+employee_count: 501 - 1000
+industry:  technology talent
+## What they do
+product_or_service: Toptal is an exclusive network of the top software developers, designers, marketing experts, management consultants, product managers, and project managers in the world. Top companies hire Toptal talent for their most important projects.
+key_differentiator:We are the largest, globally distributed network of top business, design, and technology talent, ready to tackle your most important initiatives.
+## Culture & values
+stated_values: likelihood of recommendation, ease of doing business, value for money, consistency of deliverables, reputation of dependabiolity. 
+work_style: remote / hybrid / on-site
+glassdoor_rating: 3.9
+notable_culture_notes: "Ratings by category
+4.0
+
+Diversity & inclusion
+
+4.0
+
+Work/Life balance
+
+3.7
+
+Compensation and benefits
+
+3.5
+
+Culture & values
+
+3.5
+
+Career opportunities
+
+3.4
+
+Senior management", "Pros
+
+Professionally you grow a lot through the friction and the high bar that is set. You get to work with really good professionals. The pay is quite good, if you are outside the US" , "Cons
+
+It all starts from the CEO, who is delusional, controlling and borderline insane. The atmosphere is tense, intense, and all managers are afraid of making mistakes around the CEO, and sometimes literally lie/hide things while trying to shine and make it look like their department performs. Some toxic managers and some teams have a culture of discrimination US vs Other countries. Business wise the company had a few years of issues, with multiple sudden layoffs, sometimes up to 70% of the company."
+
+## Recent news
+[Bullet any relevant funding rounds, product launches, expansions, or press mentions]
+- Series B ($12M) in Jan 2026
+- Expanding into LATAM market Q2 2026
+## Interview process
+source: recruiter / LinkedIn / referral
+rounds_expected: HR screen → technical (several rounds 6 to 7 steps)
+known_interviewers: [Name / role if known from LinkedIn or recruiter]
+format: video
+## Why this role (your personal notes)
+motivation: want to work with us companies
+connection_to_cv: a lot of pro experience 
+## Questions to ask them
+→ See topTotalInterview.md for full list of 7 curated questions.
+## Salary
+their_range: [If disclosed by recruiter or job post]
+your_expectation: 60$ per hour. 9600 month - 115k yearly. 
+================================================================

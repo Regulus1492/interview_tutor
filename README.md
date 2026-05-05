@@ -8,6 +8,16 @@ An offline, voice-based English tutor and technical interview coach powered by O
    ```bash
    ollama pull llama3
    ```
+   This model bellow is the only that works for current setting, for further information on gamma4 implementation on models go to [ollama link](https://ollama.com/library/gemma4).
+   ```bash
+   ollama pull gemma4:e2b
+   ```
+
+   If you require to remove a model for some reason do:
+   ```bash
+   ollama remove llama3
+   ```
+
    Keep the Ollama app running (system tray) whenever you use the tutor.
 
 2. **FFmpeg** — place `ffmpeg.exe` and `ffprobe.exe` in the project folder to avoid an automatic download at first run. Download from: https://www.gyan.dev/ffmpeg/builds/ (grab the `release-essentials` zip, extract the `bin/` executables).
